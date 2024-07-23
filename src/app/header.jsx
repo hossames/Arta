@@ -5,7 +5,7 @@ import { HeaderData } from "./data";
 import { useState } from "react";
 import './Header.css'
 const Menu = (props) =>{
-    const lang = props.lang;
+    let lang = props.lang;
     return(
     <div className="dropDown flex flex-col absolute nav-item">
         <a href="/products/single-disc-machines" className="menu-item">{HeaderData[lang].single_disc_machines}</a>
@@ -25,36 +25,47 @@ const Menu = (props) =>{
     )
 }
 
-const Nav =(props)=>{
-    const {lang}=props;
-    console.log(lang);
+const Nav =()=>{
+    const [lang, setLang] = useState(1);
     if(lang===0){
         return(
+        <>
         <nav  className='links-Continer flex gap-1 text-xl font-medium text-blue-300'>
                 <a href="/ContactUs" className="p-3 nav-item nav-underline">{HeaderData[lang].Contact}</a>
                 <div className="products relative nav-item">
                     <span className="nav-underline p-3 flex items-center gap-1"><MdKeyboardArrowDown className=" text-2xl"></MdKeyboardArrowDown>{HeaderData[lang].Products}</span>
-                    <Menu lang={lang}/>
+                    <Menu lang = {lang}/>
                 </div>
                 <a href="/" className="p-3 nav-item nav-underline">{HeaderData[lang].Home}</a>
         </nav>
+        <nav className="language-select text-xl font-medium text-blue-300 list-none flex gap-3">
+        <li  onClick={()=>(setLang(1))}>en</li>
+        <li onClick={()=>(setLang(0))}>ar</li>
+        </nav>
+        </>
         )
     }else{
         return(
+        <>
         <nav className='links-Continer flex gap-1 text-xl font-medium text-blue-300'>
                 <a href="/" className="p-3 nav-item nav-underline">{HeaderData[lang].Home}</a>
                 <div className="products relative nav-item">
                     <span className="nav-underline p-3 flex items-center gap-1">{HeaderData[lang].Products}<MdKeyboardArrowDown   className=" text-2xl"></MdKeyboardArrowDown></span>
-                    <Menu lang={lang}/>
+                    <Menu lang = {lang}/>
                 </div>
                 <a href="/ContactUs" className="p-3 nav-item nav-underline">{HeaderData[lang].Contact}</a>
-        </nav>)
+        </nav>
+        <nav className="language-select text-xl font-medium text-blue-300 list-none flex gap-3">
+            <li  onClick={()=>(setLang(1))}>en</li>
+            <li onClick={()=>(setLang(0))}>ar</li>
+        </nav>
+        </>
+        )
     }
 }
-const SideBar = (props) => {
+const SideBar = () => {
     const [current,change]=useState(false);
-
-    let lang = props.lang;
+    const [lang, setLang] = useState(1);
     return(
         <>
         <div className=' SideBar flex gap-1 text-xl font-medium text-blue-300'>
@@ -82,24 +93,29 @@ const SideBar = (props) => {
                     }
                 </div>
                 <a href="/ContactUs" className="p-3 nav-item nav-underline">{HeaderData[lang].Contact}</a>
+                <div className="language-select text-xl font-medium text-blue-300 list-none flex gap-3">
+                    <li  onClick={()=>(setLang(1))}>en</li>
+                    <li onClick={()=>(setLang(0))}>ar</li>
+                </div>
         </div>
         </>
     )
 }
 export const Header = (props)=>{
-    const [lang, setLang] = useState(props.lang);
     const [showMenu,setShowMenu]=useState(false);
     return(
         <header id="header" className=" flex justify-between py-4 px-10 bg-black box-border items-center">
+            <a href="/" className="p-3 logo text-2xl uppercase font-semibold text-blue-300">Arta</a>
+            <Nav/>
             {
-            showMenu?
-            <>
+                showMenu?
+                <>
             <RiCloseLine className='text-blue-50 icon close' style={{fontSize:'1.5rem'}} onClick={()=>{
                 setShowMenu(!showMenu);
-                    document.body.classList.remove('overflow-hidden');
-            
+                document.body.classList.remove('overflow-hidden');
+                
             }}/>
-            <SideBar lang={lang}/>
+            <SideBar/>
             </>
             :
             <RiMenu3Line className='text-blue-50 icon close' style={{fontSize:'1.5rem'}} onClick={()=>{
@@ -113,13 +129,7 @@ export const Header = (props)=>{
                     document.body.classList.remove('overflow-hidden');
                 }
             }}/>
-            }
-            <a href="/" className="p-3 logo text-2xl uppercase font-semibold text-blue-300">Arta</a>
-            <Nav lang={lang}/>
-        <div className="language-select text-xl font-medium text-blue-300 list-none flex gap-3">
-                <li  onClick={()=>(setLang(1))}>en</li>
-                <li onClick={()=>(setLang(0))}>ar</li>
-            </div>
+        }
         </header>
     )
 }
