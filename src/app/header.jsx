@@ -36,7 +36,7 @@ const Nav =()=>{
                     <span className="nav-underline p-3 flex items-center gap-1"><MdKeyboardArrowDown className=" text-2xl"></MdKeyboardArrowDown>{HeaderData[lang].Products}</span>
                     <Menu lang = {lang}/>
                 </div>
-                <a href="/" className="p-3 nav-item nav-underline">{HeaderData[lang].Home}</a>
+                <a href="/" className="p-3 nav-item nav-underline ">{HeaderData[lang].Home}</a>
         </nav>
         <nav className="language-select text-xl font-medium text-blue-300 list-none flex gap-3">
         <li  onClick={()=>(setLang(1))}>en</li>
@@ -93,7 +93,7 @@ const SideBar = () => {
                     }
                 </div>
                 <a href="/ContactUs" className="p-3 nav-item nav-underline">{HeaderData[lang].Contact}</a>
-                <div className="language-select text-xl font-medium text-blue-300 list-none flex gap-3">
+                <div className="language-select text-xl font-medium text-blue-300 list-none flex gap-3 m-3">
                     <li  onClick={()=>(setLang(1))}>en</li>
                     <li onClick={()=>(setLang(0))}>ar</li>
                 </div>
