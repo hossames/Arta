@@ -53,12 +53,11 @@ const Nav =(props)=>{
 }
 const SideBar = (props) => {
     const [current,change]=useState(false);
+
     let lang = props.lang;
     return(
         <>
         <div className=' SideBar flex gap-1 text-xl font-medium text-blue-300'>
-                <a href="/" className="p-3 logo text-2xl uppercase font-semibold text-blue-300">Arta</a>
-                <div className="linkCon">
                 <a href="/" className="p-3 nav-item nav-underline">{HeaderData[lang].Home}</a>
                 <div className="nav-item">
                     <span className="nav-underline p-3 flex items-center gap-1" onClick={ ()=>{change(!current);}
@@ -83,7 +82,6 @@ const SideBar = (props) => {
                     }
                 </div>
                 <a href="/ContactUs" className="p-3 nav-item nav-underline">{HeaderData[lang].Contact}</a>
-                </div>
         </div>
         </>
     )
@@ -93,25 +91,35 @@ export const Header = (props)=>{
     const [showMenu,setShowMenu]=useState(false);
     return(
         <header id="header" className=" flex justify-between py-4 px-10 bg-black box-border items-center">
-            <a href="/" className="p-3 logo text-2xl uppercase font-semibold text-blue-300">Arta</a>
             <Nav lang={lang}/>
-            <div className="language-select text-xl font-medium text-blue-300 list-none flex gap-3">
-                <li  onClick={()=>(setLang(1))}>en</li>
-                <li onClick={()=>(setLang(0))}>ar</li>
-            </div>
             {
             showMenu?
             <>
             <RiCloseLine className='text-blue-50 icon close' style={{fontSize:'1.5rem'}} onClick={()=>{
                 setShowMenu(!showMenu);
+                    document.body.classList.remove('overflow-hidden');
+            
             }}/>
             <SideBar lang={lang}/>
             </>
             :
             <RiMenu3Line className='text-blue-50 icon close' style={{fontSize:'1.5rem'}} onClick={()=>{
                 setShowMenu(!showMenu);
+                if(window.innerWidth<=768)
+                {
+                    console.log(window.innerWidth);
+                    document.body.classList.add('overflow-hidden');
+                }
+                else{
+                    document.body.classList.remove('overflow-hidden');
+                }
             }}/>
             }
+            <a href="/" className="p-3 logo text-2xl uppercase font-semibold text-blue-300">Arta</a>
+        <div className="language-select text-xl font-medium text-blue-300 list-none flex gap-3">
+                <li  onClick={()=>(setLang(1))}>en</li>
+                <li onClick={()=>(setLang(0))}>ar</li>
+            </div>
         </header>
     )
 }
