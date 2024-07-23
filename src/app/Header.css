@@ -1,0 +1,85 @@
+#header{
+    user-select: none;
+}
+.nav-underline{
+    position: relative;
+}
+
+.nav-item:hover{
+    .nav-underline::before{
+        width: 100%;
+    }
+}
+
+.menu-item::before,.nav-underline::before{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background-color: white;
+    bottom: 10px;
+    left: 0;
+    transition: 0.7s;
+}
+.menu-item:hover::before,.nav-underline:hover::before{
+    width: 100%;
+}
+
+.products:hover{
+    .dropDown{
+        display: flex;
+        animation: up-down 1s ;
+    }
+}
+
+.dropDown{
+    width: 140%;
+    left:-20%;
+    top:100%;
+    align-items: center;
+    padding:1rem 0;
+    border-radius: 15px;
+    background: linear-gradient(90deg, rgba(104, 107, 107, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    box-shadow: 1px 1px 10px rgba(0,0,0);
+    display: none;
+}
+
+.menu-item{
+    padding: 0.3rem;
+    font-weight: 400;
+    font-size: 1rem;
+    position: relative;
+}
+
+.menu-item::before{
+    bottom: 5px;
+}
+
+@keyframes up-down {
+    0%{
+        transform: translateY(-40px);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+
+.language-select{
+    li{
+        display: flex;
+        width:40px;
+        height: 40px;
+        background-color: white;
+        border-radius: 50%;
+        align-items: center;
+        color: black;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.4s ease;
+        user-select: none;
+        &:hover{
+            background-color:rgb(147,197 ,253);
+        }
+    }
+}

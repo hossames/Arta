@@ -1,0 +1,36 @@
+export const HeaderData =[{
+    Home:'الصفحة الرئيسية',
+    Products:'المنتجات',
+    Contact:'تواصل معنا',
+    single_disc_machines:'ماكينات سنجل ديسك',
+    vacuum_cleaners: 'ماكينات شفط' ,
+    scrubber_machines:'ماكينات غسيل و تجفيف',
+    burnishers:'ماكينات تلميع الرخام',
+    sweepers:'ماكينات كنس الطرق',
+    blowers:'بلاور',
+    cleaning_trolleys:'تروليات تنظيف',
+    house_keeping_trolleys:'تروليات هاوس',
+    laundry_trolleys:'تروليات غسيل',
+    garbage_containers:'حاويات قمامة',
+    cleaning_tools:'أدوات نظافة',
+    dryers:'مجففات',
+    bins:'سلات'
+},{
+    Home:'Home',
+    Products:'Products',
+    Contact:'Contact Us',
+    single_disc_machines:'single disc machines',
+    vacuum_cleaners: 'vacuum cleaners' ,
+    scrubber_machines:'scrubber machines',
+    burnishers:'burnishers',
+    sweepers:'sweepers',
+    blowers:'blowers',
+    cleaning_trolleys:'cleaning trolleys',
+    house_keeping_trolleys:'house keeping trolleys',
+    laundry_trolleys:'laundry trolleys',
+    garbage_containers:'garbage containers',
+    cleaning_tools:'cleaning tools',
+    dryers:'dryers',
+    bins:'bins'
+}
+];
