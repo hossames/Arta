@@ -91,7 +91,6 @@ export const Header = (props)=>{
     const [showMenu,setShowMenu]=useState(false);
     return(
         <header id="header" className=" flex justify-between py-4 px-10 bg-black box-border items-center">
-            <Nav lang={lang}/>
             {
             showMenu?
             <>
@@ -116,6 +115,7 @@ export const Header = (props)=>{
             }}/>
             }
             <a href="/" className="p-3 logo text-2xl uppercase font-semibold text-blue-300">Arta</a>
+            <Nav lang={lang}/>
         <div className="language-select text-xl font-medium text-blue-300 list-none flex gap-3">
                 <li  onClick={()=>(setLang(1))}>en</li>
                 <li onClick={()=>(setLang(0))}>ar</li>
