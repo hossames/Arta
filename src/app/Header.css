@@ -7,7 +7,7 @@
 
 .nav-item:hover{
     .nav-underline::before{
-        width: 100%;
+        width: 80%;
     }
 }
 
@@ -22,7 +22,7 @@
     transition: 0.7s;
 }
 .menu-item:hover::before,.nav-underline:hover::before{
-    width: 100%;
+    width: 80%;
 }
 
 .products:hover{
@@ -86,38 +86,35 @@
 .icon{
     display: none;
 }
+.SideBar{
+    display: none;
+}
+
 @media(max-width:767px){
     nav{
         display: none !important;
-        flex-direction: column;
-        position: absolute;
-        top:0%;
-        justify-content: center;
-        width: 50%;
-        align-items: center;
-        height: 100%;
-        background:linear-gradient(90deg, rgba(104, 107, 107, 1) 0%, rgba(0, 0, 0, 1) 100%);
-        left:0;
     }
-    .open{
+    .icon{
         display: flex !important;
     }
-    .close{
-        display: none !important;
+    .SideBar{
+        display:flex;
+        flex-direction: column;
+        position: absolute;
+        top: 0%;
+        width: 60%;
+        height: 100%;
+        left: 0%;
+        background: linear-gradient(90deg, rgba(104, 107, 107, 1) 0%, rgba(0, 0, 0, 1) 100%);;
     }
-    .products{
-        position:static;
+    .Drop{
+        margin:5px 20px;
+        color:white;
     }
-    .dropDown{
-        position: static;
-        width: 100%;
-    }
-    .menu-item{
-        padding: 0.2rem;
-        font-size: 0.8rem;
+    .linkCon{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
     }
 }
-.active{
-    display:flex !important;
-}
-
