@@ -91,6 +91,7 @@ const SideBar = () => {
 export const Header = (props)=>{
     const [showMenu,setShowMenu]=useState(false);
     const [loaded, setloaded] = useState(false);
+    if(typeof window !== "undefined")
     window.onload=()=>(setloaded(true));
     return(
         <header id="header" className=" flex justify-between py-4 px-10 bg-black box-border items-center">
